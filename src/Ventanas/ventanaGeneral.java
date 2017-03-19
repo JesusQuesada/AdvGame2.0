@@ -43,7 +43,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         description = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        inventario = new javax.swing.JList<String>();
         jPanel1 = new javax.swing.JPanel();
         history = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -96,7 +96,6 @@ public class ventanaGeneral extends javax.swing.JFrame {
         action1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 action1ActionPerformed(evt);
-                action1ActionPerformed2(evt);
             }
         });
         getContentPane().add(action1);
@@ -157,21 +156,15 @@ public class ventanaGeneral extends javax.swing.JFrame {
         jScrollPane1.setFocusable(false);
         jScrollPane1.setFont(new java.awt.Font("Andalus", 0, 11)); // NOI18N
 
-        jList1.setBackground(new java.awt.Color(0, 0, 0));
-        jList1.setFont(new java.awt.Font("URW Bookman L", 1, 12)); // NOI18N
-        jList1.setForeground(new java.awt.Color(255, 255, 255));
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Hacha", "Piedra", "Antorcha", "Mapa", "Cuerda" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jList1.setToolTipText("Inventario");
-        jList1.setFocusable(false);
-        jList1.setOpaque(false);
-        jList1.setSelectionBackground(new java.awt.Color(102, 51, 0));
-        jList1.setSelectionForeground(new java.awt.Color(204, 204, 204));
-        jScrollPane1.setViewportView(jList1);
+        inventario.setBackground(new java.awt.Color(0, 0, 0));
+        inventario.setFont(new java.awt.Font("URW Bookman L", 1, 12)); // NOI18N
+        inventario.setForeground(new java.awt.Color(255, 255, 255));
+        inventario.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        inventario.setToolTipText("Inventario");
+        inventario.setFocusable(false);
+        inventario.setSelectionBackground(new java.awt.Color(102, 51, 0));
+        inventario.setSelectionForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(inventario);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(610, 600, 190, 80);
@@ -209,12 +202,18 @@ public class ventanaGeneral extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     Mapas.MapasRPG map = new MapasRPG();
     
+    
     private void iniciar(){
         map.cargarJuego();
         history.setText(String.valueOf(map.maps[0][0]));
         action1.setText(String.valueOf(map.maps[0][1]));
         action2.setText(String.valueOf(map.maps[1][0]));
+        action2.setVisible(true);
         action3.setText(String.valueOf(map.maps[1][1]));
+        action3.setVisible(true);
+        
+        map.inventario();
+        description.setEditable(false);
         
     }
     
@@ -230,12 +229,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
     private void action1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_action1ActionPerformed
         // TODO add your handling code here:
         for (int i = 0; i < 40; i++) {
-            if (history.getText().equals(String.valueOf(map.maps[0][0]))){
+            if (history.getText().equals(String.valueOf(map.maps[0][0]))){  //Inicio
             
                     history.setText(String.valueOf(map.maps[2][0]));
                     action1.setText(String.valueOf(map.maps[2][1]));
                     action2.setText(String.valueOf(map.maps[1][2]));
+                    action2.setVisible(true);
                     action3.setText(String.valueOf(map.maps[2][2]));
+                    action3.setVisible(true);
                     break;
                 }
        
@@ -243,8 +244,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[5][0]));
                     action1.setText(String.valueOf(map.maps[5][1]));
-                    action2.setText(String.valueOf(map.maps[1][5]));
-                    action3.setText(String.valueOf(map.maps[5][5]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }  
             
@@ -252,8 +253,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[8][0]));
                     action1.setText(String.valueOf(map.maps[8][1]));
-                    action2.setText(String.valueOf(map.maps[1][8]));
-                    action3.setText(String.valueOf(map.maps[8][8]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -262,34 +263,30 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[10][0]));
                     action1.setText(String.valueOf(map.maps[10][1]));
                     action2.setText(String.valueOf(map.maps[1][10]));
-                    action3.setText(String.valueOf(map.maps[10][10]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[5][0]))){
-            
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                
+                    iniciar();
                     break;
                 }
-            
+                                
             else if (history.getText().equals(String.valueOf(map.maps[6][0]))){
             
                     history.setText(String.valueOf(map.maps[13][0]));
                     action1.setText(String.valueOf(map.maps[13][1]));
-                    action2.setText(String.valueOf(map.maps[1][13]));
-                    action3.setText(String.valueOf(map.maps[13][13]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
+                    description.setText(null);      ////El texto de la descripcion se limpia tras recoger el hacha.
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[7][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -297,17 +294,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[15][0]));
                     action1.setText(String.valueOf(map.maps[15][1]));
-                    action2.setText(String.valueOf(map.maps[1][15]));
-                    action3.setText(String.valueOf(map.maps[15][15]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[9][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -316,7 +310,10 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[16][0]));
                     action1.setText(String.valueOf(map.maps[16][1]));
                     action2.setText(String.valueOf(map.maps[1][16]));
-                    action3.setText(String.valueOf(map.maps[16][16]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
+                    //inventario.setModel(String.valueOf(map.inventario[2][0]));
+                    description.setText(String.valueOf(map.inventario[2][1]));      //Encuentras el hacha.
                     break;
                 }
             
@@ -325,7 +322,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[17][0]));
                     action1.setText(String.valueOf(map.maps[17][1]));
                     action2.setText(String.valueOf(map.maps[1][17]));
-                    action3.setText(String.valueOf(map.maps[17][17]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -333,17 +331,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[19][0]));
                     action1.setText(String.valueOf(map.maps[19][1]));
-                    action2.setText(String.valueOf(map.maps[1][19]));
-                    action3.setText(String.valueOf(map.maps[19][19]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[13][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -351,8 +346,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[21][0]));
                     action1.setText(String.valueOf(map.maps[21][1]));
-                    action2.setText(String.valueOf(map.maps[1][21]));
-                    action3.setText(String.valueOf(map.maps[21][21]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -361,7 +356,11 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[23][0]));
                     action1.setText(String.valueOf(map.maps[23][1]));
                     action2.setText(String.valueOf(map.maps[1][23]));
-                    action3.setText(String.valueOf(map.maps[23][23]));
+                    if (inventario.getModel().equals(String.valueOf(map.inventario[2][0])))     //El botón 2 solo se activa si llevas el hacha.
+                        action2.setVisible(true);
+                    else
+                        action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -370,7 +369,9 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[24][0]));
                     action1.setText(String.valueOf(map.maps[24][1]));
                     action2.setText(String.valueOf(map.maps[1][24]));
-                    action3.setText(String.valueOf(map.maps[24][24]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
+                    description.setText(null);           //El texto de la descripcion se limpia tras recoger la llave.
                     break;
                 }
             
@@ -379,25 +380,20 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[26][0]));
                     action1.setText(String.valueOf(map.maps[26][1]));
                     action2.setText(String.valueOf(map.maps[1][26]));
-                    action3.setText(String.valueOf(map.maps[26][26]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[18][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[19][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -405,17 +401,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[28][0]));
                     action1.setText(String.valueOf(map.maps[28][1]));
-                    action2.setText(String.valueOf(map.maps[1][28]));
-                    action3.setText(String.valueOf(map.maps[28][28]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[21][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -424,7 +417,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[3][0]));
                     action1.setText(String.valueOf(map.maps[3][1]));
                     action2.setText(String.valueOf(map.maps[1][3]));
-                    action3.setText(String.valueOf(map.maps[3][3]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -432,8 +426,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[30][0]));
                     action1.setText(String.valueOf(map.maps[30][1]));
-                    action2.setText(String.valueOf(map.maps[1][30]));
-                    action3.setText(String.valueOf(map.maps[30][30]));
+                    action3.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -442,16 +436,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[11][0]));
                     action1.setText(String.valueOf(map.maps[11][1]));
                     action2.setText(String.valueOf(map.maps[1][11]));
-                    action3.setText(String.valueOf(map.maps[11][11]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[25][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -460,7 +452,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[3][0]));
                     action1.setText(String.valueOf(map.maps[3][1]));
                     action2.setText(String.valueOf(map.maps[1][3]));
-                    action3.setText(String.valueOf(map.maps[3][3]));
+                    action1.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -468,17 +461,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[18][0]));
                     action1.setText(String.valueOf(map.maps[18][1]));
-                    action2.setText(String.valueOf(map.maps[1][18]));
-                    action3.setText(String.valueOf(map.maps[18][18]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[28][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -487,16 +477,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[10][0]));
                     action1.setText(String.valueOf(map.maps[10][1]));
                     action2.setText(String.valueOf(map.maps[1][10]));
-                    action3.setText(String.valueOf(map.maps[10][10]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
             else if (history.getText().equals(String.valueOf(map.maps[30][0]))){
             
-                    history.setText(String.valueOf(map.maps[0][0]));
-                    action1.setText(String.valueOf(map.maps[0][1]));
-                    action2.setText(String.valueOf(map.maps[1][0]));
-                    action3.setText(String.valueOf(map.maps[1][1]));
+                    iniciar();
                     break;
                 }
             
@@ -532,7 +520,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[3][0]));
                     action1.setText(String.valueOf(map.maps[3][1]));
                     action2.setText(String.valueOf(map.maps[1][3]));
-                    action3.setText(String.valueOf(map.maps[3][3]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -541,7 +530,9 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[6][0]));
                     action1.setText(String.valueOf(map.maps[6][1]));
                     action2.setText(String.valueOf(map.maps[1][6]));
-                    action3.setText(String.valueOf(map.maps[6][6]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
+                    description.setText(String.valueOf(map.inventario[3][1]));      //Encuentras el hacha.
                     break;
                 }
             
@@ -549,8 +540,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                 
                     history.setText(String.valueOf(map.maps[9][0]));
                     action1.setText(String.valueOf(map.maps[9][1]));
-                    action2.setText(String.valueOf(map.maps[1][9]));
-                    action3.setText(String.valueOf(map.maps[9][9]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -559,7 +550,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[11][0]));
                     action1.setText(String.valueOf(map.maps[11][1]));
                     action2.setText(String.valueOf(map.maps[1][11]));
-                    action3.setText(String.valueOf(map.maps[11][11]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -568,7 +560,9 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[14][0]));
                     action1.setText(String.valueOf(map.maps[14][1]));
                     action2.setText(String.valueOf(map.maps[1][14]));
-                    action3.setText(String.valueOf(map.maps[14][14]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
+                    description.setText(null);      ////El texto de la descripcion se limpia tras recoger el hacha.
                     break;
                 }
             
@@ -577,16 +571,18 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[4][0]));
                     action1.setText(String.valueOf(map.maps[4][1]));
                     action2.setText(String.valueOf(map.maps[1][4]));
+                    action2.setVisible(true);
                     action3.setText(String.valueOf(map.maps[4][4]));
+                    action3.setVisible(true);
                     break;
                 }
             
-            if (action2.getText().equals(String.valueOf(map.maps[11][0]))){
+            if (history.getText().equals(String.valueOf(map.maps[11][0]))){
                 
                     history.setText(String.valueOf(map.maps[18][0]));
                     action1.setText(String.valueOf(map.maps[18][1]));
-                    action2.setText(String.valueOf(map.maps[1][18]));
-                    action3.setText(String.valueOf(map.maps[18][18]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -595,7 +591,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[20][0]));
                     action1.setText(String.valueOf(map.maps[20][1]));
                     action2.setText(String.valueOf(map.maps[1][20]));
-                    action3.setText(String.valueOf(map.maps[20][20]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -604,7 +601,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[22][0]));
                     action1.setText(String.valueOf(map.maps[22][1]));
                     action2.setText(String.valueOf(map.maps[1][22]));
-                    action3.setText(String.valueOf(map.maps[22][22]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -612,8 +610,9 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[25][0]));
                     action1.setText(String.valueOf(map.maps[25][1]));
-                    action2.setText(String.valueOf(map.maps[1][25]));
-                    action3.setText(String.valueOf(map.maps[25][25]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
+                    description.setText(null);          ////El texto de la descripcion se limpia tras recoger la llave.
                     break;
                 }
             
@@ -621,8 +620,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
                     history.setText(String.valueOf(map.maps[27][0]));
                     action1.setText(String.valueOf(map.maps[27][1]));
-                    action2.setText(String.valueOf(map.maps[1][27]));
-                    action3.setText(String.valueOf(map.maps[27][27]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -631,7 +630,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[29][0]));
                     action1.setText(String.valueOf(map.maps[29][1]));
                     action2.setText(String.valueOf(map.maps[1][29]));
-                    action3.setText(String.valueOf(map.maps[29][29]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -640,7 +640,9 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[4][0]));
                     action1.setText(String.valueOf(map.maps[4][1]));
                     action2.setText(String.valueOf(map.maps[1][4]));
+                    action2.setVisible(true);
                     action3.setText(String.valueOf(map.maps[4][4]));
+                    action3.setVisible(true);
                     break;
                 }
             
@@ -649,7 +651,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[12][0]));
                     action1.setText(String.valueOf(map.maps[12][1]));
                     action2.setText(String.valueOf(map.maps[1][12]));
-                    action3.setText(String.valueOf(map.maps[12][12]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -658,7 +661,9 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[2][0]));
                     action1.setText(String.valueOf(map.maps[2][1]));
                     action2.setText(String.valueOf(map.maps[1][2]));
+                    action2.setVisible(true);
                     action3.setText(String.valueOf(map.maps[2][2]));
+                    action3.setVisible(true);
                     break;
                 }
             
@@ -667,7 +672,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[11][0]));
                     action1.setText(String.valueOf(map.maps[11][1]));
                     action2.setText(String.valueOf(map.maps[1][11]));
-                    action3.setText(String.valueOf(map.maps[11][11]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
         }
@@ -682,7 +688,9 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[4][0]));
                     action1.setText(String.valueOf(map.maps[4][1]));
                     action2.setText(String.valueOf(map.maps[1][4]));
+                    action2.setVisible(true);
                     action3.setText(String.valueOf(map.maps[4][4]));
+                    action3.setVisible(true);
                     break;
                 }
             
@@ -690,8 +698,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
                 
                     history.setText(String.valueOf(map.maps[7][0]));
                     action1.setText(String.valueOf(map.maps[7][1]));
-                    action2.setText(String.valueOf(map.maps[1][7]));
-                    action3.setText(String.valueOf(map.maps[7][7]));
+                    action2.setVisible(false);
+                    action3.setVisible(false);
                     break;
                 }
             
@@ -700,9 +708,15 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     history.setText(String.valueOf(map.maps[12][0]));
                     action1.setText(String.valueOf(map.maps[12][1]));
                     action2.setText(String.valueOf(map.maps[1][12]));
-                    action3.setText(String.valueOf(map.maps[12][12]));
+                    action2.setVisible(true);
+                    action3.setVisible(false);
                     break;
                 }
+            
+            
+
+            
+            
             
     //            if (history.getText().equals(String.valueOf(map.maps[1][0]))){
     //                
@@ -741,11 +755,6 @@ public class ventanaGeneral extends javax.swing.JFrame {
 //                }
         }
     }//GEN-LAST:event_action3ActionPerformed
-
-    private void action1ActionPerformed2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_action1ActionPerformed2
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_action1ActionPerformed2
 
     /**
      * @param args the command line arguments
@@ -792,11 +801,11 @@ public class ventanaGeneral extends javax.swing.JFrame {
     private javax.swing.JButton action3;
     private javax.swing.JTextArea description;
     private javax.swing.JLabel history;
+    private javax.swing.JList<String> inventario;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

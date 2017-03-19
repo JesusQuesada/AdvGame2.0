@@ -16,7 +16,9 @@ public class MapasRPG {
     
     //public void  sector1(){
       int T,btns;  
-      public String [][] maps = new String[50][50];  
+      public String [][] maps = new String[50][50];
+      public String [][] inventario = new String [5][5];
+
 
     public String[][] cargarJuego() {
         
@@ -132,7 +134,7 @@ public class MapasRPG {
         
         maps [23][0] ="<html><p>Al final del camino te encuentras delante de un puente totalmente derruido. A su lado un árbol podría servir como pasarela si consigues talarlo. Está a punto de caer la noche y se empiezan a oír aullidos en la distancia</p></html>";
         maps [23][1] ="Utilizas tu espada para intentar talar el árbol";
-        maps [1][23] =null;
+        maps [1][23] ="Utilizas el hacha que encontraste";
         maps [23][23] =null;
         
         maps [24][0] ="<html><p>Te diriges por el camino de la izquierda hasta encontrar la salida de la cueva.</p></html>";
@@ -221,6 +223,24 @@ public class MapasRPG {
         maps [40][40] ="";
         
         return maps;
+    }
+    
+    public String[][] inventario(){
+        
+        inventario [0][0] = "Mapa";
+        inventario [0][1] = "Has encontrado un mapa.";
+        inventario [1][0] = "Has usado el mapa.";
+        
+        inventario [2][1] = "Hacha";
+        inventario [2][1] = "Has encontrado un hacha.";
+        inventario [1][2] = "Has usado el hacha.";
+        
+        inventario [3][0] = "Llave";
+        inventario [3][1] = "Has encontrado una llave.";
+        inventario [1][3] = "Has usado la llave.";
+                
+        
+        return inventario;
     }
       
       

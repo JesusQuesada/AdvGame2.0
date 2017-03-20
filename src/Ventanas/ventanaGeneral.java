@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Mapas.Lago;
+
 import Mapas.MapasRPG;
 import javax.swing.JLabel;
 
@@ -43,7 +43,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         description = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        inventario = new javax.swing.JList<String>();
+        inventario = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         history = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -52,8 +52,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(830, 775));
-        setPreferredSize(new java.awt.Dimension(830, 775));
+        setMaximumSize(new java.awt.Dimension(830, 730));
+        setPreferredSize(new java.awt.Dimension(830, 730));
         getContentPane().setLayout(null);
 
         jButton5.setBackground(new java.awt.Color(0, 0, 0));
@@ -69,7 +69,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(530, 700, 270, 30);
+        jButton5.setBounds(530, 650, 270, 30);
 
         action2.setBackground(new java.awt.Color(0, 0, 0));
         action2.setFont(new java.awt.Font("URW Bookman L", 0, 18)); // NOI18N
@@ -114,14 +114,14 @@ public class ventanaGeneral extends javax.swing.JFrame {
             }
         });
         getContentPane().add(action3);
-        action3.setBounds(20, 650, 460, 29);
+        action3.setBounds(20, 650, 460, 26);
 
         jLabel3.setFont(new java.awt.Font("URW Bookman L", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Inventario");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(610, 580, 180, 20);
+        jLabel3.setBounds(610, 530, 190, 20);
 
         jToggleButton2.setBackground(new java.awt.Color(0, 0, 0));
         jToggleButton2.setFont(new java.awt.Font("URW Bookman L", 0, 18)); // NOI18N
@@ -167,7 +167,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
         jScrollPane1.setViewportView(inventario);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(610, 600, 190, 80);
+        jScrollPane1.setBounds(610, 550, 190, 80);
 
         jPanel1.setLayout(null);
 

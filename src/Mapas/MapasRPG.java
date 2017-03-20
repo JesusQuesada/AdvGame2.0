@@ -22,12 +22,12 @@ public class MapasRPG {
 
     public String[][] cargarJuego() {
         
-        maps [0][0] ="<html><p>Al entrar en el bosque ves un reflejo a lo lejos de lo que parece ser un lago. Por encima de los árboles ves humo, posiblemente los restos de una hoguera reciente. Entre los árboles ves una cabaña al abrigo de la ladera de la montaña.</p></html>";
+        maps [0][0] ="<html><p>Al despertar te encuentras en un bosque y observas a tu alrededor. A lo lejos ves el reflejo del sol sobre la superficie de un lago. Por encima de los árboles ves humo, posiblemente los restos de una hoguera reciente. Entre los árboles ves una cabaña junto de la ladera de la montaña.</p></html>";
         maps [0][1] ="Inspeccionar el lago";
         maps [1][0] ="Inspeccionar la hoguera";
         maps [1][1] ="Inspeccionar la cabaña";
         
-        maps [2][0] ="<html><p>El lago parece tener un objeto en el fondo. A su lado ves un camino.</p></html>";
+        maps [2][0] ="<html><p>Al llegar al lago, te llama la atención lo tranquilo que está todo alrededor. A escasos metros de la orilla, observas un objeto que brilla. Cerca del lago parece haber otro camino que se interna de nuevo en el bosque.</p></html>";
         maps [2][1] ="Te zambulles en el agua";
         maps [1][2] ="Intentas alcanzar el objeto con una rama";
         maps [2][2] ="Sigues por el camino";
@@ -103,7 +103,7 @@ public class MapasRPG {
         maps [16][16] =null;
         
         maps [17][0] ="<html><p>Emprendes la huida por otro camino y al hacerlo te cruzas con un tercer hombre que levanta la vista y al verte se dispone a decir algo.<p><html>";
-        maps [17][1] ="Lo ejecutas en sigilo antes de que diga nada";
+        maps [17][1] ="Lo ejecutas en sigilo";
         maps [1][17] ="Le dejas que hable";
         maps [17][17] =null;
         
@@ -172,42 +172,42 @@ public class MapasRPG {
         maps [1][30] =null;
         maps [30][30] =null;
         
-        maps [31][0] ="<html><p>Utilizas el hacha que encontraste en el pozo y consigues derribar el árbol antes de que te alcancen los lobos. Utilizas el tronco como pasarela para cruzar el puente.</p></html>";
-        maps [31][1] ="Continúa";
-        maps [1][31] =null;
+        maps [31][0] ="<html><p>Utilizas el hacha que encontraste en el pozo y consigues derribar el árbol antes de que te alcancen los lobos. Colocas el tronco formando una pasarela.</p></html>";
+        maps [31][1] ="Cruzas el puente y tiras el tronco";
+        maps [1][31] ="Cruzas y prosigues tu camino";
         maps [31][31] =null;
         
-        maps [32][0] ="";
-        maps [32][1] ="";
-        maps [1][32] ="";
-        maps [32][32] ="";
+        maps [32][0] ="<html><p>Cruzas el puente y te dispones a derribar el tronco cuando ves a los lobos aparecer por el otro lado. Con los lobos casi encima haces un último esfuerzo y el tronco cae por el abismo.</p></html>";
+        maps [32][1] ="Prosigues tu camino";
+        maps [1][32] =null;
+        maps [32][32] =null;
         
-        maps [33][0] ="";
-        maps [33][1] ="";
+        maps [33][0] ="<html><p>Cruzas y continuas cuando de repente oyes ruido desde el lado que acabas de cruzar. Te giras y ves una manada de lobos acercarse a toda velocidad. Rápidamente cruzan el tronco y se abalanzan sobre ti. Son demasiado numerosos y aunque derribas a un par de ellos, no puedes hacer nada más.<br></br>FIN.</p></html>";
+        maps [33][1] ="Volver a empezar";
         maps [1][33] ="";
         maps [33][33] ="";
         
-        maps [34][0] ="";
-        maps [34][1] ="";
-        maps [1][34] ="";
-        maps [34][34] ="";
+        maps [34][0] ="<html><p>Al final del camino te encuentras a las puertas del castillo. Desde fuera su aspecto es imponente. El portón está cerrado pero parece tener un orificio donde podría encajar una llave.</p></html>";
+        maps [34][1] ="Buscas otra entrada";
+        maps [1][34] ="Utilizas la llave que encontraste en el lago";
+        maps [34][34] =null;
         
-        maps [35][0] ="";
-        maps [35][1] ="";
-        maps [1][35] ="";
-        maps [35][35] ="";
+        maps [35][0] ="<html><p>Decides buscar una entrada alternativa y encuentras lo que parece una grieta que podría llevar a las bodegas del castillo. Te introduces por ella y avanzas a oscuras mientras vas palpando la pared para seguir el camino. Llegas a una estancia bastante amplia y de pronto escuchas una voz profunda: '¿Quién se atreve a entrar en mi castillo?'</p></html>";
+        maps [35][1] ="Respondes: 'He venido a matarte'";
+        maps [1][35] ="Respondes: 'Solo soy un viajero que se ha perdido'";
+        maps [35][35] ="No respondes nada";
         
-        maps [36][0] ="";
-        maps [36][1] ="";
-        maps [1][36] ="";
-        maps [36][36] ="";
+        maps [36][0] ="<html><p>Utilizas la llave y entras en el castillo.<br></br>Enhorabuena, has terminado el primer episodio.</p></html>";
+        maps [36][1] ="Volver a empezar";
+        maps [1][36] =null;
+        maps [36][36] =null;
         
-        maps [37][0] ="";
-        maps [37][1] ="";
-        maps [1][37] ="";
-        maps [37][37] ="";
+        maps [37][0] ="<html><p>Antes de que puedas terminar de pronunciar la frase empiezas a oir una especie de chillidos que parecen provenir de todas partes. Varios seres se abalanzan sobre ti y te muerden en distintas zonas de tu cuerpo. Sientes que te están arrebatando la vida pero no puedes hacer nada por evitarlo.<br></br>FIN.</p></html>";
+        maps [37][1] ="Volver a empezar";
+        maps [1][37] =null;
+        maps [37][37] =null;
         
-        maps [38][0] ="";
+        maps [38][0] ="<html><p>Se hace un silencio largo, casi interminable hasta que escuchas unos pasos acercarse hacia ti. Tratas de adivinar sus movimientos entre la oscuridad pero no logras hacerlo. De pronto sientes una corriente que te atraviesa y repentinamente el ser se encuentra a tu espalda. Te agarra por el hombro y por la cabeza y justo antes de clavar sus colmillos en tu cuello te susurra: 'Sé quién eres'<br></br>FIN.</p></html>";
         maps [38][1] ="";
         maps [1][38] ="";
         maps [38][38] ="";

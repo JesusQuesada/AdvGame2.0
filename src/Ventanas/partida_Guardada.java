@@ -46,21 +46,22 @@ public class partida_Guardada extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Recuerdos almacenados");
+        jLabel3.setText("<html><p>Recuerdos almacenados</p></html>");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(70, 30, 258, 30);
+        jLabel3.setBounds(40, 30, 323, 30);
 
         jButton1.setFont(new java.awt.Font("Andalus", 1, 14)); // NOI18N
         jButton1.setText("Aceptar");
         jButton1.setAutoscrolls(true);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusable(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(150, 190, 90, 31);
+        jButton1.setBounds(130, 190, 130, 27);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Guardada.png"))); // NOI18N
         getContentPane().add(jLabel2);

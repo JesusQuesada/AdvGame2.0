@@ -64,8 +64,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("General");
-        setMaximumSize(new java.awt.Dimension(830, 730));
-        setPreferredSize(new java.awt.Dimension(830, 730));
+        setMaximumSize(new java.awt.Dimension(820, 730));
+        setPreferredSize(new java.awt.Dimension(820, 730));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -74,9 +74,6 @@ public class ventanaGeneral extends javax.swing.JFrame {
         mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mapa.png"))); // NOI18N
         mapa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(153, 153, 153), new java.awt.Color(153, 102, 0), new java.awt.Color(153, 51, 0)));
         mapa.setFocusable(false);
-        mapa.setMaximumSize(new java.awt.Dimension(20, 20));
-        mapa.setMinimumSize(new java.awt.Dimension(20, 20));
-        mapa.setPreferredSize(new java.awt.Dimension(20, 20));
         mapa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mapaActionPerformed(evt);
@@ -90,9 +87,6 @@ public class ventanaGeneral extends javax.swing.JFrame {
         hacha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lenador.png"))); // NOI18N
         hacha.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(153, 153, 153), new java.awt.Color(153, 102, 0), new java.awt.Color(153, 51, 0)));
         hacha.setFocusable(false);
-        hacha.setMaximumSize(new java.awt.Dimension(20, 20));
-        hacha.setMinimumSize(new java.awt.Dimension(20, 20));
-        hacha.setPreferredSize(new java.awt.Dimension(20, 20));
         hacha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hachaActionPerformed(evt);
@@ -106,9 +100,6 @@ public class ventanaGeneral extends javax.swing.JFrame {
         llave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clave.png"))); // NOI18N
         llave.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(153, 153, 153), new java.awt.Color(153, 102, 0), new java.awt.Color(153, 51, 0)));
         llave.setFocusable(false);
-        llave.setMaximumSize(new java.awt.Dimension(20, 20));
-        llave.setMinimumSize(new java.awt.Dimension(20, 20));
-        llave.setPreferredSize(new java.awt.Dimension(20, 20));
         llave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 llaveActionPerformed(evt);
@@ -175,7 +166,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
             }
         });
         getContentPane().add(action3);
-        action3.setBounds(20, 650, 460, 29);
+        action3.setBounds(20, 650, 460, 26);
 
         jLabel3.setFont(new java.awt.Font("URW Bookman L", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,6 +234,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     Mapas.MapasRPG map = new MapasRPG();
+    int intentos;
     
     
     private void iniciar(){
@@ -260,6 +252,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
         map.inventario();
         description.setEditable(false);
         description.setText(null);
+        intentos++;
+        
         
     }
     
@@ -269,7 +263,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
         Ficheros.CrearFichero fichero = new Ficheros.CrearFichero();
         try {
             recuerdos.setVisible(true);
-            fichero.crearFichero("\\src\\DatosGuardados\\", nombre, 30);
+            fichero.crearFichero("DatosGuardados\\", nombre, intentos);
             
         } catch (IOException ex) {
            partida_Guardada_Error error = new partida_Guardada_Error();
@@ -550,6 +544,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
 //                    action2.setText(String.valueOf(map.maps[1][32]));
                     action2.setVisible(false);
                     action3.setVisible(false);
+                    description.setText(null);
                     break;
                 }
             
@@ -581,8 +576,8 @@ public class ventanaGeneral extends javax.swing.JFrame {
             
             else if (history.getText().equals(String.valueOf(map.maps[35][0]))){
             
-                    history.setText(String.valueOf(map.maps[36][0]));
-                    action1.setText(String.valueOf(map.maps[36][1]));
+                    history.setText(String.valueOf(map.maps[37][0]));
+                    action1.setText(String.valueOf(map.maps[37][1]));
                     action2.setVisible(false);
                     action3.setVisible(false);
                     description.setText(null);
@@ -788,6 +783,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     action1.setText(String.valueOf(map.maps[33][1]));
                     action2.setVisible(false);
                     action3.setVisible(false);
+                    description.setText(null);
                     break;
                 }
             
@@ -916,6 +912,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     action2.setVisible(true);
                     action3.setVisible(false);
                     description.setText(String.valueOf(map.inventario[1][2]));
+                    
             }    
         
     }//GEN-LAST:event_hachaActionPerformed
@@ -930,6 +927,7 @@ public class ventanaGeneral extends javax.swing.JFrame {
                     action2.setVisible(false);
                     action3.setVisible(false);
                     description.setText(String.valueOf(map.inventario[1][3]));
+                    
             }
     }//GEN-LAST:event_llaveActionPerformed
 

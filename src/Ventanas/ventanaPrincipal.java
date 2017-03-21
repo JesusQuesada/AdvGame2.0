@@ -5,17 +5,23 @@
  */
 package Ventanas;
 
+import LibreriaSonido.Sonido;
+
 /**
  *
  * @author dalvarezruiz
  */
 public class ventanaPrincipal extends javax.swing.JFrame {
 
+    Sonido son = new Sonido();
+
     /**
      * Creates new form ventanaPrincipal
      */
     public ventanaPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -44,6 +50,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusable(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(160, 270, 130, 40);
 
@@ -95,10 +106,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         ventanaGeneral general = new ventanaGeneral();
-        general.show();
         general.setVisible(true);
-        this.dispose();        
-        
+        this.dispose();
+        son.playAudio("/Audio/yunque.wav");
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -107,8 +118,16 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         System.exit(0);
+        son.playAudio("/Audio/yunque.wav");
 
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        son.playAudio("/Audio/yunque.wav");
+        Ficheros.SelectorArchivos select = new Ficheros.SelectorArchivos();
+        select.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

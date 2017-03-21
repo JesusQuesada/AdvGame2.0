@@ -16,6 +16,8 @@ public class partida_Guardada extends javax.swing.JFrame {
      */
     public partida_Guardada() {
         initComponents();
+              this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -27,48 +29,42 @@ public class partida_Guardada extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Guardada.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Recuerdos Guardados");
+        setMaximumSize(new java.awt.Dimension(399, 260));
+        setMinimumSize(new java.awt.Dimension(399, 260));
+        setPreferredSize(new java.awt.Dimension(399, 260));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        jLabel2.setText("Recuerdos");
+        jLabel3.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Recuerdos almacenados");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(70, 30, 258, 30);
 
-        jLabel3.setText("almacenados");
-
+        jButton1.setFont(new java.awt.Font("Andalus", 1, 14)); // NOI18N
         jButton1.setText("Aceptar");
+        jButton1.setAutoscrolls(true);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(150, 190, 90, 31);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel3))
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Guardada.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 400, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -107,6 +103,7 @@ public class partida_Guardada extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(partida_Guardada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -118,6 +115,7 @@ public class partida_Guardada extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
